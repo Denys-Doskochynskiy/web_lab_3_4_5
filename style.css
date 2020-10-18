@@ -1,0 +1,18 @@
+.test{
+    background-color: aqua;
+
+}
+.test__button{
+    position: relative;
+    background-color: aqua;
+   font-size: 1rem;
+padding: 2rem;
+left: 10px;
+}
+.test__button__edit{
+    position: relative;
+    background-color: aqua;
+   font-size: 1rem;
+   left: 10rem;
+padding: 2rem;
+}

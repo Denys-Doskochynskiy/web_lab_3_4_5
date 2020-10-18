@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase 1</title>
+
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="sketch.js" type="text/javascript"></script>
+
+
+
+</head>
+
+
+<body>
+    <header>
+        <h1>Bookstore Manager</h1>
+
+    </header>
+    <section>
+
+        <h1>Create/Edit</h1>
+        <div>
+            name: <input id="name" type="text" required="required">
+        </div>
+        <div>
+            producer: <input id="producer" type="text" required="required">
+        </div>
+
+        <div>
+            short__descript: <input id="short__descript" type="text" required="required">
+        </div>
+        <button id="submit" class="create-button">
+            Create
+        </button>
+        <button id="btnSaveBookstore" class="create-button" style="display: none">
+            Save
+        </button>
+
+    </section>
+    <section>
+
+        <h1>List of bookstore item</h1>
+        Checkbox: <input type="checkbox" id="myCheck" onclick="my__function__how__many()">
+
+        <p id="text" style="display:none">dgdgdgd</p>
+        <div>
+            <form action="" method="post">
+                <label id="searchName" class="form-name">Search</label>
+                <br>
+
+                <input id="searchInput" class="form-input" type="text" name="name">
+            </form>
+        </div>
+        Search: <input type="checkbox" id="myCheck2" onclick="my__function__search()">
+
+
+        <div class="select">
+            <span class="input-text-select">Filter by producer</span>
+            <input type="checkbox" id="myCheck3" onclick="filter__sheck()">
+            <select id="sortFilter" name="filter" class="filter">
+                <option id="sortOption" value="ua">Ukraine</option>
+                <option id="sortOption" value="pl">Poland</option>
+                <option id="sortOption" value="jp">Japan</option>
+                <option id="sortOption" value="usa">USA</option>
+            </select>
+        </div>
+        <div class="select">
+            <span class="input-text-select">Sort by:</span>
+            <input type="checkbox" id="myCheck4" onclick="sort__check()">
+            <select id="sort_list" name="filter" class="filter">
+                <option id="sortOption" value="asc">Z--a</option>
+                <option id="sortOption" value="desc">A--Z</option>
+
+            </select>
+        </div>
+
+        <ul id="books" class="test">
+
+
+        </ul>
+    </section>
+    <footer>
+
+        <p>doskochynska83@gmail.com</p>
+    </footer>
+
+
+</html>
