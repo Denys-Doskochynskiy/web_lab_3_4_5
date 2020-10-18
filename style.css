@@ -1,38 +1,5 @@
-.test{
-    background-color: aqua;
-
-}
-.test__button{
-    position: relative;
-    background-color: aqua;
-   font-size: 1rem;
-padding: 2rem;
-left: 10px;
-}
-.test__button__edit{
-    position: relative;
-    background-color: aqua;
-   font-size: 1rem;
-   left: 10rem;
-padding: 2rem;
-}
-.header{
-    width: 100%;
-    height:5rem; 
-    background-color: #807c7c;
-    display:flex;
-    justify-content: center;
-    border-radius: 1rem;
-}
-.header__text{
-   align-self:center;
-    top: 1rem;
-    color: #fff9f9;
-    opacity: 0.85;
-
-}
-.card-first-name{
-    color: hsl(225, 26%, 15%);
-    opacity: 0.85;
-    font-size: 1.5rem;
-}
+@import "./css/header.css";
+@import "./css/section__create.css";
+@import "./css/section__functional.css";
+@import "./css/section__generate.css";
+@import "./css/footer.css";

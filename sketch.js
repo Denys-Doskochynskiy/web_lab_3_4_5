@@ -18,6 +18,7 @@ function my__function__how__many() {
 
   }
 }
+var sDesc = document.getElementById("short__description");
 
 function filter__sheck() {
   var sortFilter = document.getElementById('sortFilter');
@@ -88,7 +89,7 @@ function my__function__search() {
 
 function setup() {
 
- 
+
   firebase.initializeApp(config);
   database = firebase.database();
 
@@ -107,14 +108,14 @@ function setup() {
   loadFirebase();
 
 }
+function cleanInputs() {
+  document.getElementById('name').value = '';
+  document.getElementById('producer').value = '';
+  document.getElementById('short__descript').value = '';
+}
 
 
 
-const clearInput = () => {
-  producer__input.value = '';
-  producer__imp.value = '';
-  short__descript__imp.value = ''
-};
 
 function loadFirebase() {
   var ref = database.ref("Books");
@@ -153,29 +154,29 @@ function gotData(data) {
 
     innerItem += `
         <li class="main-card-item">
-            <a href="#">
+            <a>
                 <div class="card-info">
                     <div class="card-id">
-                        ${index + 1}
+                        ${"ID: " + (index + 1)}
                     </div>
                     <div class="card-first-name">
                         ${book.name}
                     </div>
                     <span class="card-line"></span>
-                    <div class="card-last-name">
+                    <div class="card-producer">
                         ${book.producer}
                     </div>
                     <span class="card-line"></span>
-                    <div class="card-phone-number">
+                    <div class="card-short-description">
                     ${book.short__descript}
                     </div>
                 </div>
                 
                 <div class="card-button-wrapper">
-                    <button id="btnEdit" onclick="editContact(${index})" type="button" class="card-btn">
+                    <button id="btnEdit" class="button-edit" onclick="editContact(${index})" type="button" class="card-btn">
                         Edit
                     </button>
-                    <button id="btnDelete" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
+                    <button id="btnDelete" class="button-del" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
                         Delete
                     </button>
                 </div>
@@ -203,7 +204,7 @@ function editContact(index) {
 
 
   console.log(producer__input.value())
-
+  cleanInputs();
   loadFirebase();
 
 }
@@ -258,35 +259,33 @@ function searchData(data) {
     book = books[key];
     if (book.name == document.getElementById('searchInput').value) {
       innerItem += `
-        <li class="main-card-item">
-            <a href="#">
-                <div class="card-info">
-                    <div class="card-id">
-                        
-                    </div>
-                    <div class="card-first-name">
-                        ${book.name}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-last-name">
-                        ${book.producer}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-phone-number">
-                    ${book.short__descript}
-                    </div>
-                </div>
-                
-                <div class="card-button-wrapper">
-                    <button id="btnEdit" onclick="editContact(${index})" type="button" class="card-btn">
-                        Edit
-                    </button>
-                    <button id="btnDelete" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
-                        Delete
-                    </button>
-                </div>
-            </a>
-        </li>
+      <li class="main-card-item">
+      <a>
+          <div class="card-info">
+              
+              <div class="card-first-name">
+                  ${book.name}
+              </div>
+              <span class="card-line"></span>
+              <div class="card-producer">
+                  ${book.producer}
+              </div>
+              <span class="card-line"></span>
+              <div class="card-short-description">
+              ${book.short__descript}
+              </div>
+          </div>
+          
+          <div class="card-button-wrapper">
+              <button id="btnEdit" class="button-edit" onclick="editContact(${index})" type="button" class="card-btn">
+                  Edit
+              </button>
+              <button id="btnDelete" class="button-del" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
+                  Delete
+              </button>
+          </div>
+      </a>
+  </li>
     `;
     }
 
@@ -309,35 +308,33 @@ function sortData(data) {
     book = books[key];
     if (book.producer == selectedSort) {
       innerItem += `
-        <li class="main-card-item">
-            <a href="#">
-                <div class="card-info">
-                    <div class="card-id">
-                      
-                    </div>
-                    <div class="card-first-name">
-                        ${book.name}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-last-name">
-                        ${book.producer}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-phone-number">
-                    ${book.short__descript}
-                    </div>
-                </div>
-                
-                <div class="card-button-wrapper">
-                    <button id="btnEdit" onclick="editContact(${index})" type="button" class="card-btn">
-                        Edit
-                    </button>
-                    <button id="btnDelete" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
-                        Delete
-                    </button>
-                </div>
-            </a>
-        </li>
+      <li class="main-card-item">
+      <a>
+          <div class="card-info">
+              
+              <div class="card-first-name">
+                  ${book.name}
+              </div>
+              <span class="card-line"></span>
+              <div class="card-producer">
+                  ${book.producer}
+              </div>
+              <span class="card-line"></span>
+              <div class="card-short-description">
+              ${book.short__descript}
+              </div>
+          </div>
+          
+          <div class="card-button-wrapper">
+              <button id="btnEdit" class="button-edit" onclick="editContact(${index})" type="button" class="card-btn">
+                  Edit
+              </button>
+              <button id="btnDelete" class="button-del" onclick="clearList(${index})"  type="button" class="card-btn btn-delete">
+                  Delete
+              </button>
+          </div>
+      </a>
+  </li>
     `;
     }
 
@@ -409,40 +406,35 @@ function sortedDataByASC(data) {
 
 
 
-
     innerItem += `
-        <li class="main-card-item">
-            <a href="#">
-                <div class="card-info">
-                    <div class="card-id">
-                     
-                    </div>
-                    <div class="card-first-name">
-                        ${test.name}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-last-name">
-                        ${test.producer}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-phone-number">
-                    ${test.short__descript}
-                    </div>
-                </div>
+    <li class="main-card-item">
+        <a>
+            <div class="card-info">
                 
-                <div class="card-button-wrapper">
-                    <button id="btnEdit" onclick="editContact(${i})" type="button" class="card-btn">
-                        Edit
-                    </button>
-                    <button id="btnDelete" onclick="clearList(${i})"  type="button" class="card-btn btn-delete">
-                        Delete
-                    </button>
+                <div class="card-first-name">
+                    ${test.name}
                 </div>
-            </a>
-        </li>
-    `;
-
-
+                <span class="card-line"></span>
+                <div class="card-producer">
+                    ${test.producer}
+                </div>
+                <span class="card-line"></span>
+                <div class="card-short-description">
+                ${test.short__descript}
+                </div>
+            </div>
+            
+            <div class="card-button-wrapper">
+                <button id="btnEdit" class="button-edit" onclick="editContact(${i})" type="button" class="card-btn">
+                    Edit
+                </button>
+                <button id="btnDelete" class="button-del" onclick="clearList(${i})"  type="button" class="card-btn btn-delete">
+                    Delete
+                </button>
+            </div>
+        </a>
+    </li>
+`;
 
   }
   contactsHtmlWrapper.innerHTML = innerItem;
@@ -492,46 +484,40 @@ function sortedDataByDESC(data) {
 
 
 
-
-
     innerItem += `
-        <li class="main-card-item">
-            <a href="#">
-                <div class="card-info">
-                    <div class="card-id">
-                        
-                    </div>
-                    <div class="card-first-name">
-                        ${test.name}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-last-name">
-                        ${test.producer}
-                    </div>
-                    <span class="card-line"></span>
-                    <div class="card-phone-number">
-                    ${test.short__descript}
-                    </div>
-                </div>
+    <li class="main-card-item">
+        <a>
+            <div class="card-info">
                 
-                <div class="card-button-wrapper">
-                    <button id="btnEdit" onclick="editContact(${i})" type="button" class="card-btn">
-                        Edit
-                    </button>
-                    <button id="btnDelete" onclick="clearList(${i})"  type="button" class="card-btn btn-delete">
-                        Delete
-                    </button>
+                <div class="card-first-name">
+                    ${test.name}
                 </div>
-            </a>
-        </li>
-    `;
-
+                <span class="card-line"></span>
+                <div class="card-producer">
+                    ${test.producer}
+                </div>
+                <span class="card-line"></span>
+                <div class="card-short-description">
+                ${test.short__descript}
+                </div>
+            </div>
+            
+            <div class="card-button-wrapper">
+                <button id="btnEdit" class="button-edit" onclick="editContact(${i})" type="button" class="card-btn">
+                    Edit
+                </button>
+                <button id="btnDelete" class="button-del" onclick="clearList(${i})"  type="button" class="card-btn btn-delete">
+                    Delete
+                </button>
+            </div>
+        </a>
+    </li>
+`;
 
 
   }
   contactsHtmlWrapper.innerHTML = innerItem;
 }
-
 
 function sort__sheck() {
   var sort = document.getElementById('sort');
