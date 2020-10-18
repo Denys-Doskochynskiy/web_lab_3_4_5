@@ -88,12 +88,7 @@ function my__function__search() {
 
 function setup() {
 
-  var config = {
-    apiKey: "AIzaSyAyDL7DShOrN7ef-8E5DyZUzFNwgeJNeiM",
-    authDomain: "ionkid-abd2f.firebaseio.com",
-    databaseURL: "https://ionkid-abd2f.firebaseio.com/",
-
-  };
+ 
   firebase.initializeApp(config);
   database = firebase.database();
 
